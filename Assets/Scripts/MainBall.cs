@@ -7,6 +7,10 @@ public class MainBall : MonoBehaviour
     private AudioSource GameAudio;
     [SerializeField] float startForce;
     public CinemachineVirtualCamera vcam;
+    [SerializeField] LineRenderer lineRend;
+    Ray ray;
+    RaycastHit hit;
+    Camera cam;
     private void Start()
     {
         ballRb = GetComponent<Rigidbody>();
@@ -16,13 +20,32 @@ public class MainBall : MonoBehaviour
     {
         Starter();
         CenterizeForce();
+        RayCalc();
     }
+
+    void RayCalc()
+    {
+        cam = Camera.main;
+        ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, 100) && GameManager.instance.canStart)
+        {
+            lineRend.enabled = true;
+            lineRend.SetPosition(0, transform.position);
+            hit.point = new Vector3(hit.point.x, hit.point.y, hit.point.z + 30);
+            lineRend.SetPosition(1, hit.point);
+        }
+        else
+        {
+            lineRend.enabled = false;
+        }
+    }
+
     void Starter()
     {
         if (Input.GetMouseButtonDown(0) && GameManager.instance.canStart)
         {
             ballRb.isKinematic = false;
-            ballRb.AddForce(Vector3.forward * startForce);
+            ballRb.AddForce(ray.direction * startForce);
             GameManager.instance.canStart = false;
         }
     }

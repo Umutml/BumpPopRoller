@@ -4368,6 +4368,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7457598822457912874, guid: 17284ae380a0f3a49a61914c95c0a598, type: 3}
   m_PrefabInstance: {fileID: 7186894292217855703}
   m_PrefabAsset: {fileID: 0}
+--- !u!120 &7000898659443446266 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 2507617223537233902, guid: 17284ae380a0f3a49a61914c95c0a598, type: 3}
+  m_PrefabInstance: {fileID: 7186894292217855703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7186894292217855703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4383,6 +4388,10 @@ PrefabInstance:
       propertyPath: vcam
       value: 
       objectReference: {fileID: 2003898421}
+    - target: {fileID: 7000898659443446256, guid: 17284ae380a0f3a49a61914c95c0a598, type: 3}
+      propertyPath: lineRend
+      value: 
+      objectReference: {fileID: 7000898659443446266}
     - target: {fileID: 7457598822457912874, guid: 17284ae380a0f3a49a61914c95c0a598, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4427,7 +4436,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7000898659443446268, guid: 17284ae380a0f3a49a61914c95c0a598, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17284ae380a0f3a49a61914c95c0a598, type: 3}
 --- !u!1001 &8448405352130753845
 PrefabInstance:
